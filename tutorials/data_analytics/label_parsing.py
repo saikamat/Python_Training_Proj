@@ -15,12 +15,12 @@ def concatenateCSV(indir = r'C:\Users\Sai Kamat\Downloads\CSVs', outfile = r'D:\
     dfList = []
     dfXList = []
     cols = [' Label']
-    colsX = [' Bwd Packet Length Std', ' Average Packet Size', ' Flow Duration', ' Fwd IAT Std']
+    colsX = [' Bwd Packet Length Std', ' Average Packet Size', ' Flow Duration', ' Flow IAT Std']
     for filename in filelist:
         print(filename)
-        df = pd.read_csv(filename, usecols = cols)
+        df = pd.read_csv(filename, usecols = cols, encoding='cp1252')
         dfList.append(df)
-        dfX = pd.read_csv(filename, usecols = colsX)
+        dfX = pd.read_csv(filename, usecols = colsX, encoding='cp1252')
         dfXList.append(dfX)
     concatenated_data_frame = pd.concat(dfList, axis = 0)
     concatenated_data_frame.columns = cols
